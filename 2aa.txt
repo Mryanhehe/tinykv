@@ -1,0 +1,230 @@
+GO111MODULE=on go test -v --count=1 --parallel=1 -p=1 ./raft -run 2AA
+=== RUN   TestFollowerUpdateTermFromMessage2AA
+--- PASS: TestFollowerUpdateTermFromMessage2AA (0.00s)
+=== RUN   TestCandidateUpdateTermFromMessage2AA
+--- PASS: TestCandidateUpdateTermFromMessage2AA (0.00s)
+=== RUN   TestLeaderUpdateTermFromMessage2AA
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+--- PASS: TestLeaderUpdateTermFromMessage2AA (0.00s)
+=== RUN   TestStartAsFollower2AA
+--- PASS: TestStartAsFollower2AA (0.00s)
+=== RUN   TestLeaderBcastBeat2AA
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[2],条目为[[ ]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[2],条目为[[ ]]
+--- PASS: TestLeaderBcastBeat2AA (0.00s)
+=== RUN   TestFollowerStartElection2AA
+--- PASS: TestFollowerStartElection2AA (0.00s)
+=== RUN   TestCandidateStartNewElection2AA
+--- PASS: TestCandidateStartNewElection2AA (0.00s)
+=== RUN   TestLeaderElectionInOneRoundRPC2AA
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 对[4]的prs为1
+2021/11/17 23:23:58 对[5]的prs为1
+2021/11/17 23:23:58 [1] 给 [4] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [5] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[4]的prs为1
+2021/11/17 23:23:58 对[5]的prs为1
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [4] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [5] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 对[4]的prs为1
+2021/11/17 23:23:58 对[5]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [4] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [5] 发送sendappend发送的条目个数为[1],条目为[[]]
+--- PASS: TestLeaderElectionInOneRoundRPC2AA (0.00s)
+=== RUN   TestFollowerVote2AA
+2021/11/17 23:23:58  id[1][0] leader[1][0]
+2021/11/17 23:23:58  id[1][0] leader[2][0]
+2021/11/17 23:23:58  id[1][0] leader[1][0]
+2021/11/17 23:23:58  id[1][0] leader[2][0]
+2021/11/17 23:23:58  id[1][0] leader[2][0]
+2021/11/17 23:23:58  id[1][0] leader[1][0]
+--- PASS: TestFollowerVote2AA (0.00s)
+=== RUN   TestCandidateFallback2AA
+--- PASS: TestCandidateFallback2AA (0.00s)
+=== RUN   TestFollowerElectionTimeoutRandomized2AA
+--- PASS: TestFollowerElectionTimeoutRandomized2AA (0.00s)
+=== RUN   TestCandidateElectionTimeoutRandomized2AA
+--- PASS: TestCandidateElectionTimeoutRandomized2AA (0.00s)
+=== RUN   TestFollowersElectionTimeoutNonconflict2AA
+--- PASS: TestFollowersElectionTimeoutNonconflict2AA (0.00s)
+=== RUN   TestCandidatesElectionTimeoutNonconflict2AA
+--- PASS: TestCandidatesElectionTimeoutNonconflict2AA (0.00s)
+=== RUN   TestLeaderElection2AA
+2021/11/17 23:23:58  id[3][0] leader[1][0]
+2021/11/17 23:23:58  id[2][0] leader[1][0]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58  id[2][0] leader[1][0]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58  id[4][0] leader[1][0]
+2021/11/17 23:23:58  id[4][0] leader[1][0]
+2021/11/17 23:23:58  id[5][0] leader[1][0]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 对[4]的prs为1
+2021/11/17 23:23:58 对[5]的prs为1
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [4] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [5] 发送sendappend发送的条目个数为[1],条目为[[]]
+--- PASS: TestLeaderElection2AA (0.00s)
+=== RUN   TestLeaderCycle2AA
+2021/11/17 23:23:58  id[3][0] leader[1][0]
+2021/11/17 23:23:58  id[2][0] leader[1][0]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58  id[1][1] leader[2][0]
+2021/11/17 23:23:58  id[3][0] leader[2][0]
+    raft_test.go:112: campaigning node 2 state = StateCandidate, want StateLeader
+2021/11/17 23:23:58  id[1][1] leader[3][0]
+2021/11/17 23:23:58  id[2][0] leader[3][0]
+    raft_test.go:112: campaigning node 3 state = StateCandidate, want StateLeader
+--- FAIL: TestLeaderCycle2AA (0.00s)
+=== RUN   TestVoteFromAnyState2AA
+2021/11/17 23:23:58  id[1][0] leader[2][42]
+2021/11/17 23:23:58  id[1][0] leader[2][42]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58  id[1][1] leader[2][42]
+--- PASS: TestVoteFromAnyState2AA (0.00s)
+=== RUN   TestSingleNodeCandidate2AA
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+--- PASS: TestSingleNodeCandidate2AA (0.00s)
+=== RUN   TestCandidateResetTermMessageType_MsgHeartbeat2AA
+2021/11/17 23:23:58  id[2][0] leader[1][0]
+2021/11/17 23:23:58  id[3][0] leader[1][0]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58  id[1][1] leader[2][0]
+2021/11/17 23:23:58  id[2][0] leader[1][1]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[2]的prs为2
+2021/11/17 23:23:58 对[3]的prs为2
+2021/11/17 23:23:58 对[1]的prs为2
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+--- PASS: TestCandidateResetTermMessageType_MsgHeartbeat2AA (0.00s)
+=== RUN   TestCandidateResetTermMessageType_MsgAppend2AA
+2021/11/17 23:23:58  id[3][0] leader[1][0]
+2021/11/17 23:23:58  id[2][0] leader[1][0]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58  id[1][1] leader[2][0]
+2021/11/17 23:23:58  id[2][0] leader[1][1]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为2
+2021/11/17 23:23:58 对[2]的prs为2
+2021/11/17 23:23:58 对[3]的prs为2
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+--- PASS: TestCandidateResetTermMessageType_MsgAppend2AA (0.00s)
+=== RUN   TestDisruptiveFollower2AA
+2021/11/17 23:23:58  id[2][0] leader[1][0]
+2021/11/17 23:23:58  id[3][0] leader[1][0]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58  id[1][1] leader[3][0]
+2021/11/17 23:23:58  id[2][0] leader[3][0]
+--- PASS: TestDisruptiveFollower2AA (0.00s)
+=== RUN   TestRecvMessageType_MsgBeat2AA
+--- PASS: TestRecvMessageType_MsgBeat2AA (0.00s)
+=== RUN   TestCampaignWhileLeader2AA
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+--- PASS: TestCampaignWhileLeader2AA (0.00s)
+=== RUN   TestSplitVote2AA
+2021/11/17 23:23:58  id[2][0] leader[1][0]
+2021/11/17 23:23:58  id[3][0] leader[1][0]
+2021/11/17 23:23:58 [1]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 [1] 给 [2] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [1] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58  id[3][0] leader[2][0]
+2021/11/17 23:23:58  id[2][0] leader[3][0]
+2021/11/17 23:23:58  id[3][0] leader[2][0]
+2021/11/17 23:23:58 [2]当选leader 
+2021/11/17 23:23:58 对[1]的prs为1
+2021/11/17 23:23:58 对[2]的prs为1
+2021/11/17 23:23:58 对[3]的prs为1
+2021/11/17 23:23:58 [2] 给 [1] 发送sendappend发送的条目个数为[1],条目为[[]]
+2021/11/17 23:23:58 [2] 给 [3] 发送sendappend发送的条目个数为[1],条目为[[]]
+--- PASS: TestSplitVote2AA (0.00s)
+FAIL
+FAIL	github.com/pingcap-incubator/tinykv/raft	0.775s
+FAIL

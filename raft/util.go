@@ -18,13 +18,23 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"log"
 	"os"
 	"os/exec"
 	"sort"
+	"strconv"
 	"strings"
 
 	pb "github.com/pingcap-incubator/tinykv/proto/pkg/eraftpb"
 )
+
+const Debug = 1
+func DPrintf(format string, a ...interface{}) (n int, err error) {
+	if Debug > 0 {
+		log.Printf(format, a...)
+	}
+	return
+}
 
 func min(a, b uint64) uint64 {
 	if a > b {
@@ -59,7 +69,7 @@ func mustTerm(term uint64, err error) uint64 {
 	}
 	return term
 }
-
+//对raft按照id排序
 func nodes(r *Raft) []uint64 {
 	nodes := make([]uint64, 0, len(r.Prs))
 	for id := range r.Prs {
@@ -116,6 +126,7 @@ func (p uint64Slice) Len() int           { return len(p) }
 func (p uint64Slice) Less(i, j int) bool { return p[i] < p[j] }
 func (p uint64Slice) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
 
+
 func IsLocalMsg(msgt pb.MessageType) bool {
 	return msgt == pb.MessageType_MsgHup || msgt == pb.MessageType_MsgBeat
 }
@@ -126,4 +137,10 @@ func IsResponseMsg(msgt pb.MessageType) bool {
 
 func isHardStateEqual(a, b pb.HardState) bool {
 	return a.Term == b.Term && a.Vote == b.Vote && a.Commit == b.Commit
+}
+
+func int64ToInt(x uint64) int{
+	formatInt := strconv.FormatUint(x, 10)
+	res , _ := strconv.Atoi(formatInt)
+	return res
 }

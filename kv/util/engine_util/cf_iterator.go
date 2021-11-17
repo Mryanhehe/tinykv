@@ -14,10 +14,12 @@ func (i *CFItem) String() string {
 	return i.item.String()
 }
 
+//得到cf的key
 func (i *CFItem) Key() []byte {
 	return i.item.Key()[i.prefixLen:]
 }
 
+//将cf的key复制到dst中
 func (i *CFItem) KeyCopy(dst []byte) []byte {
 	return i.item.KeyCopy(dst)[i.prefixLen:]
 }
@@ -29,7 +31,7 @@ func (i *CFItem) Version() uint64 {
 func (i *CFItem) IsEmpty() bool {
 	return i.item.IsEmpty()
 }
-
+//得到cf的key的value (item 是 cf_key)
 func (i *CFItem) Value() ([]byte, error) {
 	return i.item.Value()
 }

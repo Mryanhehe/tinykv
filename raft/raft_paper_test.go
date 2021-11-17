@@ -253,7 +253,6 @@ func TestCandidateFallback2AA(t *testing.T) {
 		if r.State != StateCandidate {
 			t.Fatalf("unexpected state = %s, want %s", r.State, StateCandidate)
 		}
-
 		r.Step(tt)
 
 		if g := r.State; g != StateFollower {
@@ -364,6 +363,7 @@ func TestLeaderStartReplication2AB(t *testing.T) {
 	s := NewMemoryStorage()
 	r := newTestRaft(1, []uint64{1, 2, 3}, 10, 1, s)
 	r.becomeCandidate()
+
 	r.becomeLeader()
 	commitNoopEntry(r, s)
 	li := r.RaftLog.LastIndex()

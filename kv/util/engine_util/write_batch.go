@@ -7,7 +7,9 @@ import (
 )
 
 type WriteBatch struct {
+	//记录操作的日志
 	entries       []*badger.Entry
+	//整个batch的大小
 	size          int
 	safePoint     int
 	safePointSize int
@@ -25,7 +27,7 @@ var CFs [3]string = [3]string{CfDefault, CfWrite, CfLock}
 func (wb *WriteBatch) Len() int {
 	return len(wb.entries)
 }
-
+//put操作
 func (wb *WriteBatch) SetCF(cf string, key, val []byte) {
 	wb.entries = append(wb.entries, &badger.Entry{
 		Key:   KeyWithCF(cf, key),
@@ -40,7 +42,7 @@ func (wb *WriteBatch) DeleteMeta(key []byte) {
 	})
 	wb.size += len(key)
 }
-
+//delete操作
 func (wb *WriteBatch) DeleteCF(cf string, key []byte) {
 	wb.entries = append(wb.entries, &badger.Entry{
 		Key: KeyWithCF(cf, key),

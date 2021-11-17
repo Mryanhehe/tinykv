@@ -43,7 +43,7 @@ func TestEngineUtil(t *testing.T) {
 	require.Nil(t, err)
 	_, err = GetCF(db, CfDefault, []byte("e"))
 	require.Equal(t, err, badger.ErrKeyNotFound)
-
+	//测试txn
 	txn := db.NewTransaction(false)
 	defer txn.Discard()
 	defaultIter := NewCFIterator(CfDefault, txn)

@@ -7,10 +7,12 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
+//在key前面加上cf
 func KeyWithCF(cf string, key []byte) []byte {
 	return append([]byte(cf+"_"), key...)
 }
 
+//从DB中拿到cfg的key的value
 func GetCF(db *badger.DB, cf string, key []byte) (val []byte, err error) {
 	err = db.View(func(txn *badger.Txn) error {
 		val, err = GetCFFromTxn(txn, cf, key)
@@ -19,6 +21,7 @@ func GetCF(db *badger.DB, cf string, key []byte) (val []byte, err error) {
 	return
 }
 
+//从txn中拿到cf的key的value
 func GetCFFromTxn(txn *badger.Txn, cf string, key []byte) (val []byte, err error) {
 	item, err := txn.Get(KeyWithCF(cf, key))
 	if err != nil {
@@ -27,6 +30,7 @@ func GetCFFromTxn(txn *badger.Txn, cf string, key []byte) (val []byte, err error
 	val, err = item.ValueCopy(val)
 	return
 }
+
 
 func PutCF(engine *badger.DB, cf string, key []byte, val []byte) error {
 	return engine.Update(func(txn *badger.Txn) error {

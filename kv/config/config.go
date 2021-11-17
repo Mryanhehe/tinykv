@@ -12,7 +12,6 @@ type Config struct {
 	Raft          bool
 	SchedulerAddr string
 	LogLevel      string
-
 	DBPath string // Directory to store the data in. Should exist and be writable.
 
 	// raft_base_tick_interval is a base tick interval (ms).

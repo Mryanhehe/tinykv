@@ -183,6 +183,9 @@ cannot be removed any more since the cluster cannot make progress.
 For this reason it is highly recommended to use three or more nodes in
 every cluster.
 
+
+
+//消息条目
 MessageType
 
 Package raft sends and receives message in Protocol Buffer format (defined
@@ -193,17 +196,20 @@ eraftpb.MessageType. Note that every step is checked by one common method
 'Step' that safety-checks the terms of node and incoming message to prevent
 stale log entries:
 
+	//请求成为leader
 	'MessageType_MsgHup' is used for election. If a node is a follower or candidate, the
 	'tick' function in 'raft' struct is set as 'tickElection'. If a follower or
 	candidate has not received any heartbeat before the election timeout, it
 	passes 'MessageType_MsgHup' to its Step method and becomes (or remains) a candidate to
 	start a new election.
 
+	//唤醒leader给其他节点发送MsgHeartbeat消息
 	'MessageType_MsgBeat' is an internal type that signals the leader to send a heartbeat of
 	the 'MessageType_MsgHeartbeat' type. If a node is a leader, the 'tick' function in
 	the 'raft' struct is set as 'tickHeartbeat', and triggers the leader to
 	send periodic 'MessageType_MsgHeartbeat' messages to its followers.
 
+	//提议将数据追加到log中，会将proposal重定向到leader。
 	'MessageType_MsgPropose' proposes to append data to its log entries. This is a special
 	type to redirect proposals to the leader. Therefore, send method overwrites
 	eraftpb.Message's term with its HardState's term to avoid attaching its
@@ -215,6 +221,8 @@ stale log entries:
 	method. It is stored with sender's ID and later forwarded to the leader by
 	rafthttp package.
 
+	//将log备份到其他server中。将MsgAppend传到candidate时，candidate会变成follower，因为这时候表
+	//示有一个有效leader
 	'MessageType_MsgAppend' contains log entries to replicate. A leader calls bcastAppend,
 	which calls sendAppend, which sends soon-to-be-replicated logs in 'MessageType_MsgAppend'
 	type. When 'MessageType_MsgAppend' is passed to candidate's Step method, candidate reverts
@@ -227,6 +235,9 @@ stale log entries:
 	calling 'handleAppendEntries' method, which sends 'MessageType_MsgAppendResponse' to raft
 	mailbox.
 
+	//表示请求选择，当node是follower或者candidate，并且收到了MsgHup时，node
+	//会调用campaign方法来竞选leader。一旦campaign调用，candidate会发送MsgRequestVote给其他node，
+	//如果term小于当前node的term，request会被拒绝
 	'MessageType_MsgRequestVote' requests votes for election. When a node is a follower or
 	candidate and 'MessageType_MsgHup' is passed to its Step method, then the node calls
 	'campaign' method to campaign itself to become a leader. Once 'campaign'
